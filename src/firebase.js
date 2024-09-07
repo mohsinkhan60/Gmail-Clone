@@ -12,12 +12,11 @@ const firebaseConfig = {
   storageBucket: "clone-2aa89.appspot.com",
   messagingSenderId: "738763619411",
   appId: "1:738763619411:web:6f7709672944144061daa6",
-  measurementId: "G-JQMCVHKGWR"
+  measurementId: "G-JQMCVHKGWR",
 };
-
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-export const auth = getAuth()
-export const db = getFirestore(app)
-export const provider = new GoogleAuthProvider()
+export const auth = getAuth();
+export const db = getFirestore(app);
+export const provider = new GoogleAuthProvider();
