@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setOpen } from "../../../Redux/appSlice";
 import { useState } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { db } from "../../../Firebase";
+import { db } from "../../../firebase";
 
 export const SendMail = () => {
   const [formData, setFormData] = useState({
