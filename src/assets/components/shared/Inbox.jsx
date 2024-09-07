@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaCaretDown, FaUserFriends } from "react-icons/fa";
 import { GoTag } from "react-icons/go";
 import { IoMdMore, IoMdRefresh } from "react-icons/io";
-import { MdCropSquare, MdInbox } from "react-icons/md";
+import { MdCropSquare, MdInbox, MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import Messages from "./Messages";
 const mailType = [
   {
@@ -35,6 +35,11 @@ export const Inbox = () => {
           <div className="p-2 rounded-full hover:bg-gray-100 cursor-pointer">
             <IoMdMore size={"20px "} />
           </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <p className="text-sm text-gray-500 ">1-50 of 1000</p>
+          <button className="hover:rounded-full hover:bg-gray-100"><MdKeyboardArrowLeft size={"24"} /></button>
+          <button className="hover:rounded-full hover:bg-gray-100"><MdKeyboardArrowRight size={"24"} /></button>
         </div>
       </div>
       <div className="h-[90vh] overflow-auto">
