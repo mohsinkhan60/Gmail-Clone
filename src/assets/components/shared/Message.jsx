@@ -1,12 +1,13 @@
+/* eslint-disable react/prop-types */
 import { MdCropSquare } from "react-icons/md"
 import { RiStarLine } from "react-icons/ri"
 import { useNavigate } from "react-router-dom"
 
 
-export const  Message = () => {
+export const  Message = ({email}) => {
   const  navigate = useNavigate()
   const openMail = () => {
-    navigate("/mail/123456789")
+    navigate(`/mail/${email.id}`)
   }
   return (
     <div onClick={openMail} className="flex items-start justify-between border-b border-gray-200 px-4 py-3 text-sm hover:cursor-pointer hover:shadow-md">
@@ -19,10 +20,10 @@ export const  Message = () => {
         </div>
       </div>
       <div className="flex-1 ml-4">
-        <p className="text-gray-600 truncate inline-block max-w-full">Lorem ipsum dolor, sit amet consectetur adipisicing deleniti illum facilis autem ratione repudiandae cupiditate quos atque a, quidem ab voluptatem velit quia quasi.</p>
-      </div>
+        <p className="text-gray-600 truncate inline-block max-w-full">{email?.message}</p>
+       </div>
       <div className="flex-none text-gray-400 text-sm">
-        Time Agay
+        <p>{new Date(email?.createdAt?.seconds*1000).toUTCString()}</p>
       </div>
     </div>
   )
