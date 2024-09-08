@@ -1,11 +1,19 @@
 
+import { useEffect, useState } from "react";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosSearch } from "react-icons/io";
 import { IoSettingsOutline } from "react-icons/io5";
 import { PiDotsNineBold } from "react-icons/pi";
+import { useDispatch } from "react-redux";
+import { setSearchText } from "../../../Redux/appSlice";
 
 export const Navbar = () => {
+   const [input, setInput] = useState("");
+   const dispatch = useDispatch();
+   useEffect(() => {
+      dispatch(setSearchText(input))
+   },[input])
   return (
     <div className="flex items-center justify-between mx-3 h-16">
       <div className="flex items-center gap-10">
@@ -20,7 +28,7 @@ export const Navbar = () => {
       <div className="md:block hidden w-[50%] mr-60 ">
          <div className="flex items-center bg-[#EAF1FB] px-2 py-3 rounded-full">
             <IoIosSearch size={"24px"} className="text-gray-700" />
-            <input placeholder="Search Mail..." type="text" className="rounded-full w-full bg-transparent outline-none px-1" />
+            <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Search Mail..." type="text" className="rounded-full w-full bg-transparent outline-none px-1" />
          </div>
       </div>
       <div className="md:block hidden ">
