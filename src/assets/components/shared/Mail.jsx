@@ -14,6 +14,7 @@ import {
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { db } from "../../../firebase";
+import { motion } from "framer-motion";
 
 export const Mail = () => {
   const params = useParams();
@@ -31,7 +32,11 @@ export const Mail = () => {
   const { selectedEmail } = useSelector((state) => state.appSlice);
 
   return (
-    <div className="flex-1 bg-white rounded-xl mx-5">
+    <motion.div 
+    initial={{ opacity: 0, y:-20 }}
+    animate={{ opacity: 1, y:10 }}
+    transition={{ duration: 0.5 }}
+    className="flex-1 bg-white rounded-xl mx-5">
       <div className="flex items-center justify-between px-4">
         <div className="flex items-center gap-2 text-gray-700 py-2">
           <div
@@ -97,7 +102,7 @@ export const Mail = () => {
           <p>{selectedEmail?.message}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default Mail;
